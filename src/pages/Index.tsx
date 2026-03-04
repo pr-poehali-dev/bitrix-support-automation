@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMAGE = "https://cdn.poehali.dev/projects/73d44e83-d564-479d-8f43-da6574df1585/files/eedaac6e-b123-41e6-872c-52beb0e61ee3.jpg";
+const HERO_IMAGE = "https://cdn.poehali.dev/projects/73d44e83-d564-479d-8f43-da6574df1585/files/41e3ea9b-a178-4e27-9f7e-13c27cea0abb.jpg";
 const TEAM_IMAGE = "https://cdn.poehali.dev/projects/73d44e83-d564-479d-8f43-da6574df1585/files/1ba8b785-57a1-4ef2-a1f1-a6c46b1d80f5.jpg";
 
 // ─── NAV ────────────────────────────────────────────────────────────────────
@@ -96,7 +96,17 @@ function Hero() {
 
       <div className="max-w-7xl mx-auto px-6 pt-24 pb-16 grid lg:grid-cols-2 gap-12 items-center w-full">
         <div className="animate-slide-up">
-          <span className="section-label mb-4 block">Битрикс24 & U-ON</span>
+          <div className="flex items-center gap-3 mb-6 flex-wrap">
+            {[
+              { label: "Битрикс24", color: "bg-blue-500/20 text-blue-300 border-blue-500/30" },
+              { label: "U-ON", color: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30" },
+              { label: "Геткурс", color: "bg-orange-500/20 text-orange-300 border-orange-500/30" },
+            ].map((crm) => (
+              <span key={crm.label} className={`font-ibm text-xs font-semibold px-3 py-1.5 rounded-lg border ${crm.color}`}>
+                {crm.label}
+              </span>
+            ))}
+          </div>
 
           <h1 className="font-golos text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] mb-6">
             Автоматизация<br />
@@ -105,8 +115,8 @@ function Hero() {
           </h1>
 
           <p className="font-ibm text-white/60 text-lg leading-relaxed mb-10 max-w-xl">
-            Техническая поддержка Битрикс24 и U-ON, настройка бизнес-процессов,
-            интеграции сервисов и обучение сотрудников. Работаем быстро и на результат.
+            Техническая поддержка и внедрение Битрикс24, U-ON и Геткурс.
+            Настройка бизнес-процессов, интеграции и обучение сотрудников.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -173,76 +183,103 @@ function Hero() {
 
 // ─── SERVICES ───────────────────────────────────────────────────────────────
 
-const SERVICES = [
+const CRM_TABS = [
   {
-    icon: "Headphones",
-    color: "cyan",
-    title: "Техническая поддержка",
-    desc: "Оперативное решение технических проблем Битрикс24 и U-ON. SLA до 4 часов, поддержка 24/7.",
-    tags: ["Битрикс24", "U-ON", "24/7"],
+    id: "bitrix",
+    label: "Битрикс24",
+    color: "blue",
+    accent: "text-blue-300",
+    activeBg: "bg-blue-500/20 border-blue-500/40 text-blue-200",
+    inactiveBg: "bg-white/4 border-white/8 text-white/50 hover:text-white/80",
+    desc: "Полный спектр услуг по внедрению, настройке и поддержке Битрикс24 — самой популярной CRM в России",
+    services: [
+      { icon: "Headphones", title: "Техподдержка", desc: "Оперативное решение задач. SLA до 4 часов, личный менеджер.", tags: ["24/7", "SLA 4ч"] },
+      { icon: "GitBranch", title: "Бизнес-процессы", desc: "Автоматизация воронок, роботы, триггеры, сделки под ключ.", tags: ["Воронки", "Роботы"] },
+      { icon: "Plug", title: "Интеграции", desc: "1С, телефония, мессенджеры, email, маркетплейсы и API.", tags: ["1С", "API"] },
+      { icon: "Wrench", title: "Обслуживание", desc: "Обновления, мониторинг, бэкапы и оптимизация портала.", tags: ["Обновления", "Бэкапы"] },
+      { icon: "GraduationCap", title: "Обучение", desc: "Тренинги для команды: от азов до продвинутых функций.", tags: ["Тренинги"] },
+      { icon: "Settings", title: "Внедрение с нуля", desc: "Аудит, настройка, запуск и обучение сотрудников.", tags: ["Под ключ"] },
+    ],
   },
   {
-    icon: "GitBranch",
-    color: "lime",
-    title: "Бизнес-процессы",
-    desc: "Автоматизация рутинных задач, настройка воронок продаж, CRM-стратегии для роста бизнеса.",
-    tags: ["CRM", "Воронки", "Автоматизация"],
+    id: "uon",
+    label: "U-ON",
+    color: "emerald",
+    accent: "text-emerald-300",
+    activeBg: "bg-emerald-500/20 border-emerald-500/40 text-emerald-200",
+    inactiveBg: "bg-white/4 border-white/8 text-white/50 hover:text-white/80",
+    desc: "Специализированная CRM для туристического бизнеса — настроим и автоматизируем работу турагентства",
+    services: [
+      { icon: "Headphones", title: "Техподдержка", desc: "Поддержка U-ON: настройка, ошибки, вопросы по функционалу.", tags: ["Поддержка"] },
+      { icon: "Users", title: "Настройка CRM", desc: "Воронки туров, работа с клиентами, автоуведомления.", tags: ["Воронки", "Туры"] },
+      { icon: "Plug", title: "Интеграции", desc: "Подбор туров, онлайн-оплата, email и мессенджеры.", tags: ["Оплата", "Email"] },
+      { icon: "BarChart2", title: "Аналитика", desc: "Настройка отчётов, дашбордов и KPI-метрик для руководителя.", tags: ["Отчёты", "KPI"] },
+      { icon: "GraduationCap", title: "Обучение", desc: "Обучение менеджеров и руководителей работе в U-ON.", tags: ["Тренинги"] },
+      { icon: "Settings", title: "Внедрение", desc: "Полный переезд на U-ON: перенос базы, настройка, запуск.", tags: ["Миграция"] },
+    ],
   },
   {
-    icon: "Plug",
-    color: "purple",
-    title: "Интеграции сервисов",
-    desc: "Подключение 1С, телефонии, мессенджеров, email-маркетинга и сотен других сервисов.",
-    tags: ["1С", "Телефония", "API"],
-  },
-  {
-    icon: "Wrench",
-    color: "cyan",
-    title: "Техническое обслуживание",
-    desc: "Регулярное обновление, мониторинг, резервное копирование и оптимизация производительности.",
-    tags: ["Обновления", "Мониторинг", "Бэкапы"],
-  },
-  {
-    icon: "GraduationCap",
-    color: "lime",
-    title: "Обучение персонала",
-    desc: "Индивидуальные и групповые тренинги по Битрикс24. Видеоинструкции и базы знаний.",
-    tags: ["Тренинги", "Видео", "База знаний"],
-  },
-  {
-    icon: "Settings",
-    color: "purple",
-    title: "Внедрение с нуля",
-    desc: "Полное внедрение CRM: от аудита до запуска и обучения команды. Под ключ.",
-    tags: ["Аудит", "Внедрение", "Запуск"],
+    id: "getcourse",
+    label: "Геткурс",
+    color: "orange",
+    accent: "text-orange-300",
+    activeBg: "bg-orange-500/20 border-orange-500/40 text-orange-200",
+    inactiveBg: "bg-white/4 border-white/8 text-white/50 hover:text-white/80",
+    desc: "Платформа для онлайн-школ и инфобизнеса — запустим, настроим и автоматизируем вашу школу",
+    services: [
+      { icon: "BookOpen", title: "Настройка школы", desc: "Создание курсов, уроков, домашних заданий и тестов.", tags: ["Курсы", "Тесты"] },
+      { icon: "ShoppingCart", title: "Воронки продаж", desc: "Автоматизация продаж, вебинарные воронки, апселлы.", tags: ["Воронки", "Вебинары"] },
+      { icon: "Plug", title: "Интеграции", desc: "Оплата, рассылки, Telegram-боты, CRM и аналитика.", tags: ["Оплата", "Боты"] },
+      { icon: "Mail", title: "Email & рассылки", desc: "Настройка цепочек писем, автосегментация базы.", tags: ["Email", "SMS"] },
+      { icon: "GraduationCap", title: "Обучение", desc: "Обучим команду эффективно работать с платформой.", tags: ["Тренинги"] },
+      { icon: "Zap", title: "Автоматизация", desc: "Бизнес-процессы, автосегменты, триггерные сценарии.", tags: ["Авто", "Триггеры"] },
+    ],
   },
 ];
 
 function Services() {
+  const [activeTab, setActiveTab] = useState("bitrix");
+  const crm = CRM_TABS.find((c) => c.id === activeTab)!;
+
   return (
     <section id="services" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-16">
+        <div className="mb-12">
           <span className="section-label mb-3 block">Что мы делаем</span>
           <h2 className="font-golos text-4xl md:text-5xl font-black text-white mb-4">Услуги IT25</h2>
           <p className="font-ibm text-white/50 text-lg max-w-xl">
-            Полный цикл работы с Битрикс24 и U-ON — от внедрения до постоянной поддержки
+            Выберите CRM-систему — расскажем, что можем сделать именно для неё
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES.map((s) => (
+        {/* CRM Tabs */}
+        <div className="flex gap-3 mb-8 flex-wrap">
+          {CRM_TABS.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-6 py-2.5 rounded-xl font-golos font-semibold text-sm border transition-all duration-200 ${
+                activeTab === tab.id ? tab.activeBg : tab.inactiveBg
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* CRM desc */}
+        <p className={`font-ibm text-sm mb-8 ${crm.accent} opacity-80`}>{crm.desc}</p>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {crm.services.map((s) => (
             <div key={s.title} className="card-glass rounded-2xl p-6 card-hover border border-white/5 group">
-              <div className={`w-12 h-12 rounded-xl mb-5 flex items-center justify-center ${
-                s.color === "cyan" ? "bg-cyan-400/15" :
-                s.color === "lime" ? "bg-emerald-400/15" : "bg-purple-400/15"
+              <div className={`w-11 h-11 rounded-xl mb-4 flex items-center justify-center ${
+                crm.color === "blue" ? "bg-blue-500/15" :
+                crm.color === "emerald" ? "bg-emerald-500/15" : "bg-orange-500/15"
               }`}>
-                <Icon name={s.icon} fallback="Star" size={22} className={
-                  s.color === "cyan" ? "text-cyan-400" :
-                  s.color === "lime" ? "text-emerald-400" : "text-purple-400"
-                } />
+                <Icon name={s.icon} fallback="Star" size={20} className={crm.accent} />
               </div>
-              <h3 className="font-golos font-bold text-white text-xl mb-2 group-hover:text-cyan-400 transition-colors">
+              <h3 className={`font-golos font-bold text-white text-lg mb-2 transition-colors group-hover:${crm.accent}`}>
                 {s.title}
               </h3>
               <p className="font-ibm text-white/50 text-sm leading-relaxed mb-4">{s.desc}</p>
