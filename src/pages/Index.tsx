@@ -36,7 +36,7 @@ function Nav() {
           <img
             src="https://cdn.poehali.dev/projects/73d44e83-d564-479d-8f43-da6574df1585/bucket/39cf89f9-e068-4ca7-81a6-b30477dfd19e.png"
             alt="IT25"
-            className="h-8 w-auto brightness-0 invert"
+            className="h-8 w-auto"
           />
         </a>
 
@@ -833,7 +833,7 @@ function Footer() {
           <img
             src="https://cdn.poehali.dev/projects/73d44e83-d564-479d-8f43-da6574df1585/bucket/39cf89f9-e068-4ca7-81a6-b30477dfd19e.png"
             alt="IT25"
-            className="h-7 w-auto brightness-0 invert opacity-60"
+            className="h-7 w-auto opacity-70"
           />
         </div>
 
