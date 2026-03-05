@@ -4,6 +4,15 @@ import Icon from "@/components/ui/icon";
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/73d44e83-d564-479d-8f43-da6574df1585/files/86f33631-5ee0-4e05-b138-1cfce32a1f7b.jpg";
 const TEAM_IMAGE = "https://cdn.poehali.dev/projects/73d44e83-d564-479d-8f43-da6574df1585/files/fdf59d59-b44c-486d-997f-58c055a12062.jpg";
 
+const CASE_IMAGES = {
+  bi: "https://cdn.poehali.dev/projects/73d44e83-d564-479d-8f43-da6574df1585/files/5dcc5614-3db3-407c-8bd0-5b0a50d2dbba.jpg",
+  bp: "https://cdn.poehali.dev/projects/73d44e83-d564-479d-8f43-da6574df1585/files/c8c72feb-8339-4607-b4be-eed24f0a0cd7.jpg",
+  sales: "https://cdn.poehali.dev/projects/73d44e83-d564-479d-8f43-da6574df1585/files/a55a8041-e043-49f8-831d-6d36b8aabff7.jpg",
+  integration: "https://cdn.poehali.dev/projects/73d44e83-d564-479d-8f43-da6574df1585/files/e7a26874-b9ed-49a9-bfc0-4a2aafc554ba.jpg",
+  estate: "https://cdn.poehali.dev/projects/73d44e83-d564-479d-8f43-da6574df1585/files/65c55bed-804f-4d1a-9db3-7d966c0ead47.jpg",
+  clinic: "https://cdn.poehali.dev/projects/73d44e83-d564-479d-8f43-da6574df1585/files/e47d7c7a-b466-46b7-88db-efd54f0b6ea2.jpg",
+};
+
 // ─── INTERSECTION OBSERVER HOOK ─────────────────────────────────────────────
 
 function useInView(threshold = 0.1) {
@@ -126,10 +135,10 @@ function Nav({ onOpenModal }: { onOpenModal: () => void }) {
 
   const links = [
     { label: "Услуги", href: "#services" },
+    { label: "Кейсы", href: "#cases" },
     { label: "Портфолио", href: "#portfolio" },
     { label: "Отзывы", href: "#reviews" },
     { label: "Обучение", href: "#education" },
-    { label: "Блог", href: "#blog" },
     { label: "О нас", href: "#about" },
     { label: "Контакты", href: "#contacts" },
   ];
@@ -743,6 +752,319 @@ function Portfolio() {
   );
 }
 
+// ─── CASES ───────────────────────────────────────────────────────────────────
+
+const CASES = [
+  {
+    id: "bi-wholesale",
+    category: "BI-аналитика",
+    tag: "Оптовая торговля",
+    title: "BI-дашборды для оптовика: от интуиции к данным",
+    image: CASE_IMAGES.bi,
+    accent: "purple",
+    client: "ООО «МеталлКомплект», 120 сотрудников",
+    problem: "Руководитель принимал решения «на глаз» — непонятно кто из 18 менеджеров эффективен, какие товары в стоке зависают, где теряются деньги. Данные жили в 4 разных Excel-файлах.",
+    solution: "Связали Битрикс24, 1С и складскую систему в единый поток. Построили BI-дашборды в режиме реального времени: воронка продаж по менеджерам, остатки склада, маржинальность по категориям, план-факт выручки.",
+    results: [
+      { metric: "+41%", label: "рост выручки за полгода" },
+      { metric: "×3", label: "быстрее управленческие решения" },
+      { metric: "−28%", label: "сокращение стока на складе" },
+      { metric: "2 дня", label: "время внедрения дашбордов" },
+    ],
+    quote: "Раньше я узнавал о проблемах постфактум. Теперь открываю дашборд утром — вижу всё и сразу. Это изменило то, как я управляю компанией.",
+    quoteAuthor: "Алексей В., генеральный директор",
+  },
+  {
+    id: "bp-construction",
+    category: "Бизнес-процессы",
+    tag: "Строительство",
+    title: "Автоматизация строительной компании: 0 потерянных заявок",
+    image: CASE_IMAGES.bp,
+    accent: "orange",
+    client: "СК «СтройПроект», 85 сотрудников",
+    problem: "Заявки падали в мессенджеры, на почту, по телефону — и терялись. Менеджеры вручную создавали задачи, забывали перезванивать. Из 100 заявок до сделки доходила 21.",
+    solution: "Выстроили единую воронку в Битрикс24: все каналы → одна CRM. Настроили 34 робота: автоназначение менеджера, напоминания на каждом этапе, автоматическая генерация КП и договора по шаблону, SMS-уведомления клиенту.",
+    results: [
+      { metric: "0", label: "потерянных заявок" },
+      { metric: "+58%", label: "конверсия из заявки в сделку" },
+      { metric: "−70%", label: "времени на операционку" },
+      { metric: "34", label: "автоматических робота" },
+    ],
+    quote: "Раньше менеджеры тратили 3 часа в день на ручную работу. Теперь система сама ставит задачи, напоминает и генерирует документы. Люди занимаются продажами, а не бумагами.",
+    quoteAuthor: "Ирина М., коммерческий директор",
+  },
+  {
+    id: "bi-sales",
+    category: "BI + Продажи",
+    tag: "Производство",
+    title: "Рост продаж на 63% после внедрения BI и CRM",
+    image: CASE_IMAGES.sales,
+    accent: "purple",
+    client: "Завод «ПластПром», 200 сотрудников",
+    problem: "Отдел продаж из 22 человек работал без единой системы: кто-то вёл Excel, кто-то блокнот. Руководитель не понимал почему одни продают, а другие нет. Среднее время закрытия сделки — 47 дней.",
+    solution: "Внедрили Битрикс24 с нуля: полная настройка CRM, воронок, прав доступа. Обучили всех 22 менеджера. Построили BI-аналитику: рейтинг эффективности, воронка конверсий, причины отказов, сравнение менеджеров.",
+    results: [
+      { metric: "+63%", label: "рост продаж за 4 месяца" },
+      { metric: "19 дней", label: "средний цикл сделки (было 47)" },
+      { metric: "×4", label: "прозрачность работы отдела" },
+      { metric: "22", label: "обученных менеджера" },
+    ],
+    quote: "Через месяц после внедрения я впервые увидел, кто реально работает, а кто имитирует. Слабых подтянули, сильных — замотивировали. Результат не заставил ждать.",
+    quoteAuthor: "Виктор С., директор по продажам",
+  },
+  {
+    id: "integration-1c",
+    category: "Интеграция",
+    tag: "Ритейл",
+    title: "1С + Битрикс24: синхронизация без дублей и ошибок",
+    image: CASE_IMAGES.integration,
+    accent: "orange",
+    client: "Торговый дом «Мастер», 65 сотрудников",
+    problem: "Склад жил в 1С, клиенты — в CRM, заказы — в Excel. Менеджеры вручную переносили данные между системами. Ошибки в номенклатуре, дубли клиентов, задержки отгрузки — всё из-за ручного ввода.",
+    solution: "Настроили двустороннюю интеграцию 1С ↔ Битрикс24: товары и остатки из 1С в реальном времени, заказы из CRM автоматически в 1С, синхронизация клиентской базы без дублей. Добавили автоматическое выставление счётов.",
+    results: [
+      { metric: "0", label: "ошибок ввода данных" },
+      { metric: "−90%", label: "ручной работы менеджеров" },
+      { metric: "2 часа", label: "время отгрузки (было 2 дня)" },
+      { metric: "100%", label: "актуальность остатков" },
+    ],
+    quote: "Раньше на reconciliation данных уходил целый день каждую пятницу. Теперь всё синхронизируется само — менеджеры занимаются клиентами, бухгалтер доволен.",
+    quoteAuthor: "Светлана К., финансовый директор",
+  },
+  {
+    id: "estate-crm",
+    category: "CRM под ключ",
+    tag: "Недвижимость",
+    title: "CRM для агентства: цикл сделки сократился вдвое",
+    image: CASE_IMAGES.estate,
+    accent: "purple",
+    client: "АН «Простор», 38 агентов",
+    problem: "Агенты вели клиентов кто в заметках телефона, кто в мессенджерах. Повторные касания не фиксировались, показы назначались вручную, горячие клиенты остывали пока менеджеры разбирали входящие.",
+    solution: "Полное внедрение Битрикс24 для агентства: воронка от первого звонка до подписания договора, интеграция с сайтом и Авито, автоматические напоминания о показах, шаблоны документов, мобильное приложение для агентов.",
+    results: [
+      { metric: "×2", label: "быстрее закрытие сделки" },
+      { metric: "+44%", label: "конверсия лидов в сделку" },
+      { metric: "−60%", label: "потерянных горячих клиентов" },
+      { metric: "3 дня", label: "обучение всех агентов" },
+    ],
+    quote: "Агенты поначалу сопротивлялись — «зачем нам CRM». Через месяц сами не представляют как работали без неё. Показы не пропадают, клиенты не теряются.",
+    quoteAuthor: "Дмитрий Р., руководитель АН «Простор»",
+  },
+  {
+    id: "clinic-bp",
+    category: "Бизнес-процессы",
+    tag: "Медицина",
+    title: "Медцентр: автоматизация записи и напоминаний",
+    image: CASE_IMAGES.clinic,
+    accent: "orange",
+    client: "МЦ «Здоровье+», 3 филиала, 90 сотрудников",
+    problem: "Администраторы 3 часа в день обзванивали пациентов вручную — напоминания о визитах, подтверждения записи. Процент неявок — 23%. Расписание врачей велось в бумажных журналах.",
+    solution: "Настроили Битрикс24 для клиники: единое расписание всех врачей, автоматические SMS и звонки с напоминанием за 24 ч и 2 ч до визита, воронка повторных обращений, отчётность по загрузке врачей и выручке по услугам.",
+    results: [
+      { metric: "−18%", label: "снижение неявок пациентов" },
+      { metric: "3 ч/день", label: "освобождено у администраторов" },
+      { metric: "+31%", label: "рост повторных обращений" },
+      { metric: "×2.5", label: "скорость обработки расписания" },
+    ],
+    quote: "Администраторы наконец занимаются пациентами в клинике, а не телефоном. Система сама напоминает, сама фиксирует, сама строит отчёт для меня на утро.",
+    quoteAuthor: "Екатерина Н., главный врач",
+  },
+];
+
+type CaseItem = typeof CASES[number];
+
+function CaseCard({ c, onOpen }: { c: CaseItem; onOpen: (c: CaseItem) => void }) {
+  return (
+    <div
+      className="card-glass rounded-2xl overflow-hidden border border-white/5 group cursor-pointer hover:-translate-y-2 hover:border-white/15 hover:shadow-[0_8px_60px_rgba(139,92,246,0.18)] transition-all duration-400"
+      onClick={() => onOpen(c)}
+    >
+      <div className="relative overflow-hidden h-52">
+        <img src={c.image} alt={c.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220,20%,6%,0.85)] via-transparent to-transparent" />
+        <div className="absolute top-4 left-4 flex gap-2">
+          <span className={`font-ibm text-xs font-semibold px-3 py-1.5 rounded-lg border backdrop-blur-sm ${
+            c.accent === "purple"
+              ? "bg-purple-500/25 border-purple-400/40 text-purple-200"
+              : "bg-orange-500/25 border-orange-400/40 text-orange-200"
+          }`}>{c.category}</span>
+          <span className="font-ibm text-xs px-3 py-1.5 rounded-lg border backdrop-blur-sm bg-white/10 border-white/20 text-white/70">{c.tag}</span>
+        </div>
+      </div>
+
+      <div className="p-6">
+        <h3 className="font-golos font-bold text-white text-lg leading-snug mb-2 group-hover:text-purple-300 transition-colors">{c.title}</h3>
+        <p className="font-ibm text-white/40 text-sm leading-relaxed mb-5 line-clamp-2">{c.problem}</p>
+
+        <div className="grid grid-cols-2 gap-3 mb-5">
+          {c.results.slice(0, 4).map((r) => (
+            <div key={r.label} className={`rounded-xl px-3 py-2.5 ${
+              c.accent === "purple" ? "bg-purple-400/10" : "bg-orange-400/10"
+            }`}>
+              <div className={`font-golos font-black text-xl ${
+                c.accent === "purple" ? "text-purple-300" : "text-orange-300"
+              }`}>{r.metric}</div>
+              <div className="font-ibm text-white/40 text-xs">{r.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex items-center justify-between">
+          <span className="font-ibm text-white/30 text-xs">{c.client}</span>
+          <span className={`flex items-center gap-1.5 font-ibm text-xs font-medium group-hover:gap-2.5 transition-all ${
+            c.accent === "purple" ? "text-purple-400" : "text-orange-400"
+          }`}>
+            Подробнее <Icon name="ArrowRight" size={13} />
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CaseModal({ c, onClose }: { c: CaseItem | null; onClose: () => void }) {
+  useEffect(() => {
+    if (c) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+    return () => { document.body.style.overflow = ""; };
+  }, [c]);
+
+  if (!c) return null;
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto card-glass rounded-2xl border border-white/10 shadow-[0_0_100px_rgba(139,92,246,0.2)]">
+        <button onClick={onClose} className="absolute top-4 right-4 z-10 text-white/30 hover:text-white/70 transition-colors bg-black/40 rounded-lg p-1.5">
+          <Icon name="X" size={18} />
+        </button>
+
+        <div className="relative h-60 overflow-hidden rounded-t-2xl">
+          <img src={c.image} alt={c.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220,20%,8%,0.95)] via-[hsl(220,20%,8%,0.3)] to-transparent" />
+          <div className="absolute bottom-5 left-6 flex gap-2">
+            <span className={`font-ibm text-xs font-semibold px-3 py-1.5 rounded-lg border backdrop-blur-sm ${
+              c.accent === "purple"
+                ? "bg-purple-500/30 border-purple-400/50 text-purple-200"
+                : "bg-orange-500/30 border-orange-400/50 text-orange-200"
+            }`}>{c.category}</span>
+            <span className="font-ibm text-xs px-3 py-1.5 rounded-lg border backdrop-blur-sm bg-white/10 border-white/20 text-white/70">{c.tag}</span>
+          </div>
+        </div>
+
+        <div className="p-7">
+          <div className="font-ibm text-white/35 text-xs mb-2">{c.client}</div>
+          <h2 className="font-golos font-black text-white text-2xl mb-6 leading-snug">{c.title}</h2>
+
+          <div className="grid grid-cols-2 gap-3 mb-7">
+            {c.results.map((r) => (
+              <div key={r.label} className={`rounded-xl p-4 ${c.accent === "purple" ? "bg-purple-400/10" : "bg-orange-400/10"}`}>
+                <div className={`font-golos font-black text-2xl mb-0.5 ${c.accent === "purple" ? "text-purple-300" : "text-orange-300"}`}>{r.metric}</div>
+                <div className="font-ibm text-white/50 text-xs">{r.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="space-y-5 mb-7">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-5 h-5 rounded bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                  <Icon name="AlertCircle" size={12} className="text-red-400" />
+                </div>
+                <span className="font-golos font-bold text-white text-sm">Проблема</span>
+              </div>
+              <p className="font-ibm text-white/55 text-sm leading-relaxed pl-7">{c.problem}</p>
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <div className={`w-5 h-5 rounded flex items-center justify-center flex-shrink-0 ${c.accent === "purple" ? "bg-purple-500/20" : "bg-orange-500/20"}`}>
+                  <Icon name="Lightbulb" size={12} className={c.accent === "purple" ? "text-purple-400" : "text-orange-400"} />
+                </div>
+                <span className="font-golos font-bold text-white text-sm">Решение</span>
+              </div>
+              <p className="font-ibm text-white/55 text-sm leading-relaxed pl-7">{c.solution}</p>
+            </div>
+          </div>
+
+          <blockquote className={`rounded-xl p-5 border-l-2 ${c.accent === "purple" ? "bg-purple-400/8 border-purple-400" : "bg-orange-400/8 border-orange-400"}`}>
+            <p className="font-ibm text-white/65 text-sm leading-relaxed italic mb-3">"{c.quote}"</p>
+            <div className="font-golos font-semibold text-white/40 text-xs">— {c.quoteAuthor}</div>
+          </blockquote>
+
+          <a href="#contacts" onClick={onClose} className="btn-primary w-full py-3.5 rounded-xl text-base text-center block mt-6">
+            Обсудить похожий проект
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Cases() {
+  const [activeCase, setActiveCase] = useState<CaseItem | null>(null);
+  const [filter, setFilter] = useState("all");
+  const { ref, inView } = useInView();
+
+  const filters = [
+    { id: "all", label: "Все кейсы" },
+    { id: "bi", label: "BI-аналитика" },
+    { id: "bp", label: "Бизнес-процессы" },
+    { id: "int", label: "Интеграции" },
+    { id: "crm", label: "CRM" },
+  ];
+
+  const filterMap: Record<string, string[]> = {
+    all: CASES.map((c) => c.id),
+    bi: ["bi-wholesale", "bi-sales"],
+    bp: ["bp-construction", "clinic-bp"],
+    int: ["integration-1c"],
+    crm: ["estate-crm", "integration-1c", "clinic-bp"],
+  };
+
+  const visible = CASES.filter((c) => filterMap[filter].includes(c.id));
+
+  return (
+    <section id="cases" className="py-24 relative" ref={ref}>
+      <CaseModal c={activeCase} onClose={() => setActiveCase(null)} />
+      <div className="max-w-7xl mx-auto px-6">
+        <div className={`mb-12 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <span className="section-label mb-3 block">Кейсы</span>
+          <h2 className="font-golos text-4xl md:text-5xl font-black text-white mb-4">Реальные проекты</h2>
+          <p className="font-ibm text-white/50 text-lg max-w-xl">Конкретные задачи, конкретные решения и измеримые результаты</p>
+        </div>
+
+        <div className="flex gap-3 mb-10 flex-wrap">
+          {filters.map((f) => (
+            <button
+              key={f.id}
+              onClick={() => setFilter(f.id)}
+              className={`font-ibm text-sm font-medium px-5 py-2.5 rounded-xl border transition-all duration-200 ${
+                filter === f.id
+                  ? "bg-purple-400/20 border-purple-400/50 text-purple-200"
+                  : "bg-white/4 border-white/8 text-white/50 hover:text-white/80"
+              }`}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {visible.map((c, i) => (
+            <div
+              key={c.id}
+              className={`transition-all duration-500 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+              style={{ transitionDelay: `${i * 80}ms` }}
+            >
+              <CaseCard c={c} onOpen={setActiveCase} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── REVIEWS ─────────────────────────────────────────────────────────────────
 
 const REVIEWS_TABS = [
@@ -1212,10 +1534,10 @@ function Footer() {
         <div className="flex gap-8 flex-wrap justify-center">
           {[
             { label: "Услуги", href: "#services" },
+            { label: "Кейсы", href: "#cases" },
             { label: "Портфолио", href: "#portfolio" },
             { label: "Отзывы", href: "#reviews" },
             { label: "Обучение", href: "#education" },
-            { label: "Блог", href: "#blog" },
             { label: "Контакты", href: "#contacts" },
           ].map((l) => (
             <a key={l.label} href={l.href} className="font-ibm text-sm text-white/30 hover:text-white/70 transition-colors">
@@ -1242,6 +1564,7 @@ export default function Index() {
       <Hero onOpenModal={() => setModalOpen(true)} />
       <Services />
       <Calculator />
+      <Cases />
       <Portfolio />
       <Reviews />
       <Education />
