@@ -13,7 +13,7 @@
     --popover: 220 18% 9%;
     --popover-foreground: 210 20% 95%;
 
-    --primary: 174 100% 50%;
+    --primary: 258 90% 66%;
     --primary-foreground: 220 20% 6%;
 
     --secondary: 220 15% 14%;
@@ -22,7 +22,7 @@
     --muted: 220 15% 14%;
     --muted-foreground: 215 15% 55%;
 
-    --accent: 142 100% 50%;
+    --accent: 28 100% 58%;
     --accent-foreground: 220 20% 6%;
 
     --destructive: 0 84.2% 60.2%;
@@ -30,22 +30,22 @@
 
     --border: 220 15% 16%;
     --input: 220 15% 14%;
-    --ring: 174 100% 50%;
+    --ring: 258 90% 66%;
 
     --radius: 0.75rem;
 
-    --cyan: 174 100% 50%;
-    --lime: 142 100% 50%;
     --purple: 258 90% 66%;
+    --orange: 28 100% 58%;
+    --violet: 270 80% 72%;
 
     --sidebar-background: 220 20% 6%;
     --sidebar-foreground: 210 20% 95%;
-    --sidebar-primary: 174 100% 50%;
+    --sidebar-primary: 258 90% 66%;
     --sidebar-primary-foreground: 220 20% 6%;
     --sidebar-accent: 220 15% 14%;
     --sidebar-accent-foreground: 210 20% 95%;
     --sidebar-border: 220 15% 16%;
-    --sidebar-ring: 174 100% 50%;
+    --sidebar-ring: 258 90% 66%;
   }
 }
 
@@ -83,50 +83,50 @@
     font-family: "IBM Plex Sans", sans-serif;
   }
 
-  .text-cyan {
-    color: hsl(174, 100%, 50%);
-  }
-
-  .text-lime {
-    color: hsl(142, 100%, 50%);
-  }
-
   .text-purple {
     color: hsl(258, 90%, 66%);
   }
 
-  .bg-cyan {
-    background-color: hsl(174, 100%, 50%);
+  .text-orange {
+    color: hsl(28, 100%, 58%);
   }
 
-  .bg-lime {
-    background-color: hsl(142, 100%, 50%);
+  .text-violet {
+    color: hsl(270, 80%, 72%);
   }
 
-  .border-cyan {
-    border-color: hsl(174, 100%, 50%);
+  .bg-purple {
+    background-color: hsl(258, 90%, 66%);
   }
 
-  .border-lime {
-    border-color: hsl(142, 100%, 50%);
+  .bg-orange {
+    background-color: hsl(28, 100%, 58%);
   }
 
-  .glow-cyan {
+  .border-purple {
+    border-color: hsl(258, 90%, 66%);
+  }
+
+  .border-orange {
+    border-color: hsl(28, 100%, 58%);
+  }
+
+  .glow-purple {
     box-shadow:
-      0 0 30px hsl(174, 100%, 50%, 0.3),
-      0 0 60px hsl(174, 100%, 50%, 0.1);
+      0 0 30px hsl(258, 90%, 66%, 0.3),
+      0 0 60px hsl(258, 90%, 66%, 0.1);
   }
 
-  .glow-lime {
+  .glow-orange {
     box-shadow:
-      0 0 30px hsl(142, 100%, 50%, 0.3),
-      0 0 60px hsl(142, 100%, 50%, 0.1);
+      0 0 30px hsl(28, 100%, 58%, 0.3),
+      0 0 60px hsl(28, 100%, 58%, 0.1);
   }
 
   .grid-bg {
     background-image:
-      linear-gradient(rgba(0, 255, 213, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 255, 213, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(147, 90, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(147, 90, 255, 0.04) 1px, transparent 1px);
     background-size: 60px 60px;
   }
 
@@ -144,22 +144,14 @@
   }
 
   .gradient-text {
-    background: linear-gradient(
-      135deg,
-      hsl(174, 100%, 50%),
-      hsl(142, 100%, 50%)
-    );
+    background: linear-gradient(135deg, hsl(258, 90%, 66%), hsl(28, 100%, 58%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .gradient-text-purple {
-    background: linear-gradient(
-      135deg,
-      hsl(174, 100%, 50%),
-      hsl(258, 90%, 66%)
-    );
+    background: linear-gradient(135deg, hsl(270, 80%, 72%), hsl(258, 90%, 66%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -177,17 +169,13 @@
 
   .card-hover:hover {
     transform: translateY(-4px);
-    border-color: hsl(174, 100%, 50%, 0.4);
-    box-shadow: 0 20px 60px rgba(0, 255, 213, 0.1);
+    border-color: hsl(258, 90%, 66%, 0.4);
+    box-shadow: 0 20px 60px rgba(147, 90, 255, 0.1);
   }
 
   .btn-primary {
-    background: linear-gradient(
-      135deg,
-      hsl(174, 100%, 50%),
-      hsl(142, 100%, 45%)
-    );
-    color: hsl(220, 20%, 6%);
+    background: linear-gradient(135deg, hsl(258, 90%, 66%), hsl(28, 100%, 58%));
+    color: #fff;
     font-weight: 700;
     font-family: "Golos Text", sans-serif;
     transition: all 0.3s ease;
@@ -195,12 +183,12 @@
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 40px hsl(174, 100%, 50%, 0.4);
+    box-shadow: 0 10px 40px hsl(258, 90%, 66%, 0.4);
   }
 
   .btn-outline {
-    border: 1.5px solid hsl(174, 100%, 50%);
-    color: hsl(174, 100%, 50%);
+    border: 1.5px solid hsl(258, 90%, 66%);
+    color: hsl(258, 90%, 66%);
     background: transparent;
     font-weight: 600;
     font-family: "Golos Text", sans-serif;
@@ -208,7 +196,7 @@
   }
 
   .btn-outline:hover {
-    background: hsl(174, 100%, 50%, 0.1);
+    background: hsl(258, 90%, 66%, 0.1);
     transform: translateY(-2px);
   }
 
@@ -218,7 +206,7 @@
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: hsl(174, 100%, 50%);
+    color: hsl(258, 90%, 66%);
     font-family: "IBM Plex Sans", sans-serif;
   }
 
@@ -302,7 +290,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(0, 255, 213, 0.2),
+      rgba(147, 90, 255, 0.2),
       transparent
     );
     background-size: 200% 100%;

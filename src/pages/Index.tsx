@@ -45,7 +45,7 @@ function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-ibm text-white/60 hover:text-cyan-400 transition-colors duration-200"
+              className="text-sm font-ibm text-white/60 hover:text-purple-400 transition-colors duration-200"
             >
               {l.label}
             </a>
@@ -71,7 +71,7 @@ function Nav() {
               key={l.href}
               href={l.href}
               onClick={() => setMenuOpen(false)}
-              className="text-white/70 hover:text-cyan-400 transition-colors py-1 font-ibm"
+              className="text-white/70 hover:text-purple-400 transition-colors py-1 font-ibm"
             >
               {l.label}
             </a>
@@ -91,16 +91,16 @@ function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden grid-bg">
       <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full blur-3xl opacity-20"
-        style={{ background: "hsl(174,100%,50%)" }} />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full blur-3xl opacity-15"
         style={{ background: "hsl(258,90%,66%)" }} />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full blur-3xl opacity-15"
+        style={{ background: "hsl(28,100%,58%)" }} />
 
       <div className="max-w-7xl mx-auto px-6 pt-24 pb-16 grid lg:grid-cols-2 gap-12 items-center w-full">
         <div className="animate-slide-up">
           <div className="flex items-center gap-3 mb-6 flex-wrap">
             {[
               { label: "Битрикс24", color: "bg-blue-500/20 text-blue-300 border-blue-500/30" },
-              { label: "U-ON", color: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30" },
+              { label: "U-ON", color: "bg-purple-500/20 text-purple-300 border-purple-500/30" },
               { label: "Геткурс", color: "bg-orange-500/20 text-orange-300 border-orange-500/30" },
             ].map((crm) => (
               <span key={crm.label} className={`font-ibm text-xs font-semibold px-3 py-1.5 rounded-lg border ${crm.color}`}>
@@ -136,7 +136,7 @@ function Hero() {
               { num: "98%", label: "Довольных клиентов" },
             ].map((s) => (
               <div key={s.label}>
-                <div className="font-golos font-black text-3xl text-cyan-400">{s.num}</div>
+                <div className="font-golos font-black text-3xl gradient-text">{s.num}</div>
                 <div className="font-ibm text-white/40 text-sm mt-0.5">{s.label}</div>
               </div>
             ))}
@@ -144,7 +144,7 @@ function Hero() {
         </div>
 
         <div className="relative animate-fade-in-scale delay-300 hidden lg:block">
-          <div className="relative rounded-2xl overflow-hidden glow-cyan">
+          <div className="relative rounded-2xl overflow-hidden glow-purple">
             <img
               src={HERO_IMAGE}
               alt="IT25 Dashboard"
@@ -155,8 +155,8 @@ function Hero() {
 
           <div className="absolute -bottom-5 -left-5 card-glass rounded-2xl px-5 py-3 border border-white/10 animate-float">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-lime-400/20 flex items-center justify-center">
-                <Icon name="Zap" size={20} className="text-lime-400" />
+              <div className="w-10 h-10 rounded-xl bg-orange-400/20 flex items-center justify-center">
+                <Icon name="Zap" size={20} className="text-orange-400" />
               </div>
               <div>
                 <div className="font-golos font-bold text-white text-sm">Автоматизация</div>
@@ -167,7 +167,7 @@ function Hero() {
 
           <div className="absolute -top-5 -right-5 card-glass rounded-2xl px-4 py-3 border border-white/10 animate-float" style={{ animationDelay: "2s" }}>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-lime-400 animate-pulse" />
+              <div className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
               <span className="font-ibm text-white/70 text-xs font-medium">На связи 24/7</span>
             </div>
           </div>
@@ -350,7 +350,7 @@ function Calculator() {
                   onClick={() => setSize(m.id)}
                   className={`px-5 py-2.5 rounded-xl font-ibm text-sm font-medium transition-all duration-200 ${
                     size === m.id
-                      ? "bg-cyan-400 text-[hsl(220,20%,6%)]"
+                      ? "bg-purple-500 text-white"
                       : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white border border-white/8"
                   }`}
                 >
@@ -369,20 +369,20 @@ function Calculator() {
                   onClick={() => toggle(item.id)}
                   className={`text-left p-4 rounded-2xl border transition-all duration-200 ${
                     active
-                      ? "border-cyan-400/60 bg-cyan-400/8 shadow-[0_0_20px_rgba(0,255,213,0.08)]"
+                      ? "border-purple-400/60 bg-purple-400/8 shadow-[0_0_20px_rgba(147,90,255,0.08)]"
                       : "border-white/8 bg-white/3 hover:border-white/20 hover:bg-white/5"
                   }`}
                 >
                   <div className="flex items-start justify-between gap-2 mb-2">
                     <div className="font-golos font-semibold text-white text-sm leading-tight">{item.label}</div>
                     <div className={`w-5 h-5 rounded-md border flex-shrink-0 flex items-center justify-center transition-all ${
-                      active ? "bg-cyan-400 border-cyan-400" : "border-white/20"
+                      active ? "bg-purple-500 border-purple-500" : "border-white/20"
                     }`}>
                       {active && <Icon name="Check" size={12} className="text-[hsl(220,20%,6%)]" />}
                     </div>
                   </div>
                   <div className="font-ibm text-white/40 text-xs mb-3">{item.desc}</div>
-                  <div className="font-golos font-bold text-cyan-400">от {item.price.toLocaleString("ru")} ₽</div>
+                  <div className="font-golos font-bold text-orange-400">от {item.price.toLocaleString("ru")} ₽</div>
                 </button>
               );
             })}
@@ -461,19 +461,19 @@ function Portfolio() {
           {PORTFOLIO.map((p) => (
             <div key={p.title} className="card-glass rounded-2xl p-7 card-hover border border-white/5 group relative overflow-hidden">
               <div className={`absolute top-0 left-0 right-0 h-0.5 ${
-                p.color === "cyan" ? "bg-gradient-to-r from-cyan-400 to-transparent" :
-                p.color === "lime" ? "bg-gradient-to-r from-emerald-400 to-transparent" :
-                "bg-gradient-to-r from-purple-400 to-transparent"
+                p.color === "cyan" ? "bg-gradient-to-r from-purple-400 to-transparent" :
+                p.color === "lime" ? "bg-gradient-to-r from-orange-400 to-transparent" :
+                "bg-gradient-to-r from-purple-400 to-orange-400"
               }`} />
               <div className="flex items-start justify-between gap-4 mb-4">
                 <span className={`font-ibm text-xs font-medium px-3 py-1 rounded-full ${
-                  p.color === "cyan" ? "bg-cyan-400/15 text-cyan-400" :
-                  p.color === "lime" ? "bg-emerald-400/15 text-emerald-400" :
+                  p.color === "cyan" ? "bg-purple-400/15 text-purple-400" :
+                  p.color === "lime" ? "bg-orange-400/15 text-orange-400" :
                   "bg-purple-400/15 text-purple-400"
                 }`}>{p.tag}</span>
                 <span className="font-golos font-bold text-sm text-white/30 group-hover:text-white/60 transition-colors">{p.result}</span>
               </div>
-              <h3 className="font-golos font-bold text-white text-2xl mb-3 group-hover:text-cyan-400 transition-colors">{p.title}</h3>
+              <h3 className="font-golos font-bold text-white text-2xl mb-3 group-hover:text-purple-400 transition-colors">{p.title}</h3>
               <p className="font-ibm text-white/50 text-sm leading-relaxed">{p.desc}</p>
             </div>
           ))}
@@ -522,7 +522,7 @@ function Education() {
   return (
     <section id="education" className="py-24 relative overflow-hidden">
       <div className="absolute -right-64 top-0 w-[600px] h-[600px] rounded-full blur-3xl opacity-10"
-        style={{ background: "hsl(142,100%,50%)" }} />
+        style={{ background: "hsl(28,100%,58%)" }} />
       <div className="max-w-7xl mx-auto px-6 relative">
         <div className="mb-16">
           <span className="section-label mb-3 block">Обучение</span>
@@ -536,18 +536,18 @@ function Education() {
           {COURSES.map((c) => (
             <div key={c.title} className={`rounded-2xl p-7 border transition-all duration-300 hover:-translate-y-2 relative ${
               c.featured
-                ? "border-emerald-400/40 bg-gradient-to-b from-emerald-400/8 to-transparent shadow-[0_0_40px_rgba(0,255,100,0.08)]"
+                ? "border-orange-400/40 bg-gradient-to-b from-orange-400/8 to-transparent shadow-[0_0_40px_rgba(255,140,0,0.08)]"
                 : "card-glass border-white/5"
             }`}>
               {c.featured && (
-                <div className="absolute -top-3 left-6 bg-emerald-400 text-[hsl(220,20%,6%)] font-golos font-bold text-xs px-3 py-1 rounded-full">
+                <div className="absolute -top-3 left-6 bg-orange-400 text-[hsl(220,20%,6%)] font-golos font-bold text-xs px-3 py-1 rounded-full">
                   Популярный
                 </div>
               )}
               <div className="mb-6">
                 <span className={`font-ibm text-xs font-semibold uppercase tracking-wider ${
-                  c.accent === "cyan" ? "text-cyan-400" :
-                  c.accent === "lime" ? "text-emerald-400" : "text-purple-400"
+                  c.accent === "cyan" ? "text-purple-400" :
+                  c.accent === "lime" ? "text-orange-400" : "text-purple-400"
                 }`}>{c.level}</span>
                 <h3 className="font-golos font-bold text-white text-xl mt-1 mb-3">{c.title}</h3>
                 <div className="flex gap-3 text-sm text-white/40 font-ibm">
@@ -563,8 +563,8 @@ function Education() {
                 {c.topics.map((t) => (
                   <li key={t} className="flex items-center gap-2.5 font-ibm text-sm text-white/60">
                     <Icon name="CheckCircle" size={14} className={
-                      c.accent === "cyan" ? "text-cyan-400" :
-                      c.accent === "lime" ? "text-emerald-400" : "text-purple-400"
+                      c.accent === "cyan" ? "text-purple-400" :
+                      c.accent === "lime" ? "text-orange-400" : "text-purple-400"
                     } />
                     {t}
                   </li>
@@ -572,8 +572,8 @@ function Education() {
               </ul>
               <div className="flex items-center justify-between">
                 <div className={`font-golos font-bold text-xl ${
-                  c.accent === "cyan" ? "text-cyan-400" :
-                  c.accent === "lime" ? "text-emerald-400" : "text-purple-400"
+                  c.accent === "cyan" ? "text-purple-400" :
+                  c.accent === "lime" ? "text-orange-400" : "text-purple-400"
                 }`}>{c.price}</div>
                 <a href="#contacts" className={`px-4 py-2 rounded-xl text-sm font-golos font-semibold transition-all hover:-translate-y-0.5 ${
                   c.featured ? "btn-primary" : "btn-outline"
@@ -634,13 +634,13 @@ function Blog() {
           {BLOG_POSTS.map((post) => (
             <article key={post.title} className="card-glass rounded-2xl overflow-hidden card-hover border border-white/5 group cursor-pointer">
               <div className={`h-2 ${
-                post.i === 0 ? "bg-gradient-to-r from-cyan-400 to-emerald-400" :
-                post.i === 1 ? "bg-gradient-to-r from-emerald-400 to-cyan-400" :
-                "bg-gradient-to-r from-purple-400 to-cyan-400"
+                post.i === 0 ? "bg-gradient-to-r from-purple-400 to-orange-400" :
+                post.i === 1 ? "bg-gradient-to-r from-orange-400 to-purple-400" :
+                "bg-gradient-to-r from-purple-500 to-orange-400"
               }`} />
               <div className="p-6">
-                <span className="font-ibm text-xs text-cyan-400 font-medium uppercase tracking-wider">{post.category}</span>
-                <h3 className="font-golos font-bold text-white text-lg mt-2 mb-3 group-hover:text-cyan-400 transition-colors leading-snug">
+                <span className="font-ibm text-xs text-purple-400 font-medium uppercase tracking-wider">{post.category}</span>
+                <h3 className="font-golos font-bold text-white text-lg mt-2 mb-3 group-hover:text-purple-400 transition-colors leading-snug">
                   {post.title}
                 </h3>
                 <p className="font-ibm text-white/40 text-sm leading-relaxed mb-6">{post.excerpt}</p>
@@ -744,8 +744,8 @@ function Contacts() {
           <div className="card-glass rounded-2xl p-8 border border-white/8">
             {sent ? (
               <div className="flex flex-col items-center justify-center h-full py-10 text-center">
-                <div className="w-16 h-16 rounded-2xl bg-cyan-400/15 flex items-center justify-center mb-4">
-                  <Icon name="CheckCircle" size={32} className="text-cyan-400" />
+                <div className="w-16 h-16 rounded-2xl bg-purple-400/15 flex items-center justify-center mb-4">
+                  <Icon name="CheckCircle" size={32} className="text-purple-400" />
                 </div>
                 <h3 className="font-golos font-bold text-white text-2xl mb-2">Отправлено!</h3>
                 <p className="font-ibm text-white/50">Свяжемся с вами в ближайшее время</p>
@@ -760,7 +760,7 @@ function Contacts() {
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     placeholder="Иван Иванов"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 font-ibm text-white placeholder-white/20 focus:outline-none focus:border-cyan-400/60 transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 font-ibm text-white placeholder-white/20 focus:outline-none focus:border-purple-400/60 transition-colors"
                   />
                 </div>
                 <div>
@@ -771,7 +771,7 @@ function Contacts() {
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     placeholder="+7 (999) 000-00-00"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 font-ibm text-white placeholder-white/20 focus:outline-none focus:border-cyan-400/60 transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 font-ibm text-white placeholder-white/20 focus:outline-none focus:border-purple-400/60 transition-colors"
                   />
                 </div>
                 <div>
@@ -781,7 +781,7 @@ function Contacts() {
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="Расскажите о вашем проекте..."
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 font-ibm text-white placeholder-white/20 focus:outline-none focus:border-cyan-400/60 transition-colors resize-none"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 font-ibm text-white placeholder-white/20 focus:outline-none focus:border-purple-400/60 transition-colors resize-none"
                   />
                 </div>
                 <button type="submit" className="btn-primary w-full py-3.5 rounded-xl text-base">
